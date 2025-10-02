@@ -1,12 +1,12 @@
 import os
+import asyncio
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from openai import OpenAI
-import asyncio
 
 # ====== توکن‌ها ======
-TELEGRAM_TOKEN = os.getenv("8477905167:AAF7ZmAam7XumyFQOGqxz5_MKh-nCiTCAYc") or "8477905167:AAF7ZmAam7XumyFQOGqxz5_MKh-nCiTCAYc"  # جایگزین با توکن خودت
-OPENAI_API_KEY = os.getenv("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") or "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"  # جایگزین با کلید خودت
+TELEGRAM_TOKEN = os.getenv("8477905167:AAF7ZmAam7XumyFQOGqxz5_MKh-nCiTCAYc") or "8477905167:AAF7ZmAam7XumyFQOGqxz5_MKh-nCiTCAYc"
+OPENAI_API_KEY = os.getenv("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") or "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"
 WEBHOOK_URL = os.getenv("https://telegram-bot-diabetes-plus-123.onrender.com/webhook") or "https://telegram-bot-diabetes-plus-123.onrender.com/webhook"
 
 # ====== اتصال به OpenAI ======
@@ -24,11 +24,9 @@ async def start(update: Update, context):
 # ====== هندل پیام‌ها ======
 async def chat(update: Update, context):
     user_message = update.message.text.strip()
-    
-    # فرستادن پیام به OpenAI و دریافت جواب
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  # می‌تونی gpt-4 هم بذاری
+            model="gpt-3.5-turbo",  # یا gpt-4
             messages=[{"role": "user", "content": user_message}]
         )
         bot_reply = response.choices[0].message.content
