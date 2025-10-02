@@ -51,6 +51,7 @@ def home():
 if __name__ == "__main__":
     # ست کردن وبهوک    
     application.bot.set_webhook(url='https://telegram-bot-diabetes-plus-123.onrender.com' + "/webhook")
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(host="0.0.0.0", port=int("PORT", 5000))
+
 
 
