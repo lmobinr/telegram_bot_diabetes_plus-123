@@ -5,9 +5,9 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from openai import OpenAI
 
 # گرفتن توکن‌ها از متغیر محیطی
-TELEGRAM_TOKEN = os.getenv('8477905167:AAF7ZmAam7XumyFQOGqxz5_MKh-nCiTCAYc')
-OPENAI_API_KEY = os.getenv("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")
-WEBHOOK_URL = os.getenv("https://telegram-bot-diabetes-plus-123.onrender.com")  # مثلا: https://your-app.onrender.com/webhook
+TELEGRAM_TOKEN = ('8477905167:AAF7ZmAam7XumyFQOGqxz5_MKh-nCiTCAYc')
+OPENAI_API_KEY = ("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")
+WEBHOOK_URL = ("https://telegram-bot-diabetes-plus-123.onrender.com")  # مثلا: https://your-app.onrender.com/webhook
 
 # اتصال به OpenAI
 client = OpenAI(api_key='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')
@@ -52,4 +52,5 @@ if __name__ == "__main__":
     # ست کردن وبهوک    
     application.bot.set_webhook(url='https://telegram-bot-diabetes-plus-123.onrender.com' + "/webhook")
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
