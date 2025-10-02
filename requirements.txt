@@ -1,4 +1,10 @@
-python-telegram-bot==20.5
-flask
-openai
+# کتابخانه اصلی تلگرام با پشتیبانی webhook
+python-telegram-bot[webhooks]==20.5
 
+# کتابخانه OpenAI برای اتصال به ChatGPT
+openai==1.0.0  # یا آخرین نسخه پایدار
+
+# aiohttp برای async HTTP (معمولاً خود PTB نصب می‌کنه ولی اضافه کردن ضرر نداره)
+aiohttp==3.8.5
+
+# هر dependency اضافی که لازم داری می‌تونی اینجا اضافه کنی
